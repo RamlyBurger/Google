@@ -1,6 +1,13 @@
 // Get the API key
-const API_KEY = "AIzaSyC-HlSnwYu-8fRVvwx497xV1mwsf9CB8KQ";
-const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEY}`;
+const API_KEYS = [
+    "AIzaSyC-HlSnwYu-8fRVvwx497xV1mwsf9CB8KQ",
+    "AIzaSyCk9e5LGAd9sPvNS_HZOvc17vP54rA_Ujg",
+    "AIzaSyB8WpnMcVK81uXdIWkAjfJSSOoB8y6TbUA"
+];
+let currentKeyIndex = 0;
+function getGeminiUrl() {
+    return `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${API_KEYS[currentKeyIndex]}`;
+}
 
 // Get search query from URL
 const urlParams = new URLSearchParams(window.location.search);
@@ -142,7 +149,7 @@ function updateImagePreviews() {
 }
 
 // Fetch AI Overview from Gemini API
-async function fetchAIOverview(query) {
+async function fetchAIOverview(query, retryCount = 0) {
     try {
         document.getElementById('aiOverview').style.display = 'block';
 
@@ -165,7 +172,7 @@ async function fetchAIOverview(query) {
             });
         });
 
-        const response = await fetch(GEMINI_URL, {
+        const response = await fetch(getGeminiUrl(), {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json'
@@ -174,6 +181,11 @@ async function fetchAIOverview(query) {
         });
 
         if (!response.ok) {
+            // Rotate key if we get authentication or quota errors (403, 429)
+            if ((response.status === 403 || response.status === 429) && retryCount < API_KEYS.length - 1) {
+                currentKeyIndex = (currentKeyIndex + 1) % API_KEYS.length;
+                return fetchAIOverview(query, retryCount + 1);
+            }
             throw new Error(`API request failed with status ${response.status}`);
         }
 
@@ -221,8 +233,10 @@ async function fetchAIOverview(query) {
         }
 
     } catch (error) {
-        console.error('Error fetching AI Overview:', error);
-        document.getElementById('aiOverviewContent').innerHTML = '<p>Unable to generate AI overview at this time.</p>';
+        if (retryCount < API_KEYS.length - 1) {
+            currentKeyIndex = (currentKeyIndex + 1) % API_KEYS.length;
+            return fetchAIOverview(query, retryCount + 1);
+        }
     }
 }
 
