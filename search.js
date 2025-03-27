@@ -215,6 +215,7 @@ async function fetchAIOverview(query) {
 
 // Generate dummy search results based on the query
 function generateSearchResults(query) {
+    var query = query.slice(0, 10);
     const searchResultsContainer = document.getElementById('searchResults');
 
     // Create dummy search results
