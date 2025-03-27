@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Search</title>
+    <link rel="icon" type="image/png"
+        href="https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="search.css">
+</head>
+
+<body>
+    <div class="header">
+        <a href="index.html">
+            <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+                alt="Google Logo" class="header-logo">
+        </a>
+        <div class="search-container">
+            <div class="search-box">
+                <i class="material-icons search-icon">search</i>
+                <div class="search-with-image">
+                    <div class="image-previews-container" id="imagePreviewsContainer">
+                        <!-- Image previews removed for simplicity -->
+                    </div>
+                    <input type="text" class="search-input" id="searchInput">
+                </div>
+                <i class="material-icons clear-icon" id="clearSearch">close</i>
+                <div class="search-icons">
+                    <i class="material-icons">mic</i>
+                    <i class="material-icons">photo_camera</i>
+                </div>
+            </div>
+        </div>
+        <div class="header-right">
+            <i class="material-icons">settings</i>
+            <i class="material-icons">apps</i>
+            <a href="#">
+                <div class="sign-in-btn">Sign in</div>
+            </a>
+        </div>
+    </div>
+
+    <nav class="nav">
+        <a href="#" class="nav-item active">All</a>
+        <a href="#" class="nav-item">Images</a>
+        <a href="#" class="nav-item">Shopping</a>
+        <a href="#" class="nav-item">Videos</a>
+        <a href="#" class="nav-item">Short videos</a>
+        <a href="#" class="nav-item">Forums</a>
+        <a href="#" class="nav-item">Web</a>
+        <div class="more-button">
+            <i class="material-icons">more_vert</i> More
+        </div>
+        <a href="#" class="nav-item" style="margin-left: auto;">Tools</a>
+    </nav>
+
+    <div class="content">
+        <div class="results-container">
+            <div class="result-stats" id="resultStats">About 292,819 results (0.86 seconds)</div>
+
+            <div class="ai-overview" id="aiOverview">
+                <div class="ai-icon">
+                    <i class="material-icons">tips_and_updates</i>
+                    <span class="ai-title">AI Overview</span>
+                    <a href="#" class="learn-more">Learn more</a>
+                </div>
+                <div class="ai-content" id="aiOverviewContent">
+                    <h3>Technical Knowledge Summary</h3>
+                    <ul>
+                        <li><strong>Keyboard Interrupt:</strong> Press Ctrl+C to initiate</li>
+                        <li><strong>Boston Smart City:</strong> Bike sharing, WiFi hotspots, smart streets</li>
+                        <li><strong>Smart City Challenges:</strong> Urbanization, traffic, environment, infrastructure
+                        </li>
+                        <li><strong>Malaysia Projects:</strong> KL Smart City, Smart Selangor, Melaka 2035</li>
+                        <li><strong>Industry Pillars:</strong> IoT, AI, Big Data, Cloud Computing</li>
+                        <li><strong>Industry Revolution:</strong> Industry 2.0 used electrical energy</li>
+                        <li><strong>Pharma Monitoring:</strong> Sensors for temperature, tracking, predictive
+                            maintenance</li>
+                        <li><strong>Grove Sensor:</strong> Analog conversion: output = input // 4</li>
+                        <li><strong>Raspberry Pi IDEs:</strong> Geany and Thonny</li>
+                        <li><strong>LCD Display:</strong> Use 8 blank spaces for left alignment</li>
+                        <li><strong>Circuit Components:</strong> Push Button, Transistor, Relay, LED Off</li>
+                        <li><strong>Transistor Pins:</strong> Collector-Base-Emitter (right to left)</li>
+                        <li><strong>Grove Modules:</strong> DHT, Ultrasonic, Rotary, Buzzer</li>
+                        <li><strong>Smart Retail:</strong> Digital signage, electronic shelf labels</li>
+                        <li><strong>Industry 4.0:</strong> IoT, Autonomous Vehicles, Mass Customization</li>
+                        <li><strong>Data Protocols:</strong> SPI for 15Mbps speed</li>
+                        <li><strong>Power Consumption:</strong> Up to 50 LEDs with relay</li>
+                        <li><strong>IoT Architecture:</strong> Connectivity, Database, Visualization</li>
+                        <li><strong>Huawei Solutions:</strong> Campus management, energy monitoring</li>
+                        <li><strong>Resistor Value:</strong> 10kΩ ±5%</li>
+                        <li><strong>Breadboard:</strong> Vertical and horizontal connections</li>
+                        <li><strong>GPIO Pins:</strong> Pins 6,9,14,20,25,30,34,39 as ground</li>
+                        <li><strong>Data Protocols:</strong> UDP, HTTP, CoAP, TCP</li>
+                        <li><strong>IoT Leaders:</strong> Cisco, Siemens, Bosch, Oracle</li>
+                        <li><strong>Wireless Standards:</strong> NFC, Bluetooth, WiFi</li>
+                        <li><strong>Data Units:</strong> Zettabyte (2016), Yottabyte (current)</li>
+                        <li><strong>Edge Computing:</strong> IoT and low-latency apps</li>
+                        <li><strong>Device Communication:</strong> Direct D2D model</li>
+                        <li><strong>IoT Elements:</strong> Intelligence, Identity, Communication</li>
+                    </ul>
+                </div>
+                <div class="ai-actions">
+                    <div class="more-btn" id="showMoreBtn">
+                        <span>Show more</span>
+                        <i class="material-icons">expand_more</i>
+                    </div>
+                </div>
+            </div>
+
+            <div id="searchResults">
+                <div class="result-item">
+                    <div class="result-url">
+                        <img src="https://www.google.com/s2/favicons?domain=en.wikipedia.org" alt="Wikipedia favicon">
+                        <span>en.wikipedia.org › wiki › Hihi</span>
+                    </div>
+                    <a href="https://en.wikipedia.org/wiki/Hihi" class="result-title">Hihi - Wikipedia</a>
+                    <div class="result-description">
+                        Hihi is a term that refers to various concepts, people, or things depending on context.
+                        This article covers the history, significance, and various interpretations of Hihi
+                        across different cultures and time periods.
+                    </div>
+                </div>
+
+                <div class="result-item">
+                    <div class="result-url">
+                        <img src="https://www.google.com/s2/favicons?domain=urbandictionary.com"
+                            alt="Urban Dictionary favicon">
+                        <span>urbandictionary.com › define › term=Hihi</span>
+                    </div>
+                    <a href="https://www.urbandictionary.com/define.php?term=Hihi" class="result-title">Hihi - Urban
+                        Dictionary</a>
+                    <div class="result-description">
+                        The top definition for Hihi on Urban Dictionary describes it as something highly regarded
+                        in modern culture. Many users have contributed their interpretations of what Hihi means in
+                        contemporary slang and everyday usage.
+                    </div>
+                </div>
+
+                <div class="result-item">
+                    <div class="result-url">
+                        <img src="https://www.mcdonalds.com.my/images/favicon.ico" alt="Hihi favicon">
+                        <span>hihi.com</span>
+                    </div>
+                    <a href="https://hihi.com" class="result-title">Hihi - Official Website</a>
+                    <div class="result-description">
+                        The official website for all things Hihi. Explore products, services, and latest news
+                        related to Hihi. Find comprehensive information about Hihi and why it matters
+                        in today's world.
+                    </div>
+                </div>
+
+                <div class="result-item">
+                    <div class="result-url">
+                        <img src="https://www.google.com/s2/favicons?domain=dictionary.com"
+                            alt="Dictionary.com favicon">
+                        <span>dictionary.com › browse › Hihi</span>
+                    </div>
+                    <a href="https://www.dictionary.com/browse/Hihi" class="result-title">Meaning of Hihi |
+                        Dictionary.com</a>
+                    <div class="result-description">
+                        Hihi definition, the act of defining or making definite, distinct, or clear.
+                        See more definitions, examples, and related words at Dictionary.com, the world's
+                        most trusted free online dictionary.
+                    </div>
+                </div>
+
+                <div class="result-item">
+                    <div class="result-url">
+                        <img src="https://www.google.com/s2/favicons?domain=britannica.com" alt="Britannica favicon">
+                        <span>britannica.com › search › Hihi</span>
+                    </div>
+                    <a href="https://www.britannica.com/search?query=Hihi" class="result-title">Hihi | Encyclopedia
+                        Britannica</a>
+                    <div class="result-description">
+                        Learn about Hihi in this article covering its origins, development, and significance.
+                        Explore related topics and discover how Hihi has influenced various aspects of
+                        society throughout history.
+                    </div>
+                </div>
+
+                <div class="result-item">
+                    <div class="result-url">
+                        <img src="https://www.google.com/s2/favicons?domain=youtube.com" alt="YouTube favicon">
+                        <span>youtube.com › results › search_query=Hihi</span>
+                    </div>
+                    <a href="https://www.youtube.com/results?search_query=Hihi" class="result-title">Hihi Videos -
+                        YouTube</a>
+                    <div class="result-description">
+                        Watch popular videos about Hihi on YouTube. From tutorials to documentaries, find comprehensive
+                        visual explanations and demonstrations related to Hihi. Channels verified for accurate content.
+                    </div>
+                </div>
+
+                <div class="result-item">
+                    <div class="result-url">
+                        <img src="https://www.google.com/s2/favicons?domain=reddit.com" alt="Reddit favicon">
+                        <span>reddit.com › search › q=Hihi</span>
+                    </div>
+                    <a href="https://www.reddit.com/search/?q=Hihi" class="result-title">Hihi Discussions on Reddit</a>
+                    <div class="result-description">
+                        Join the Reddit community discussing Hihi. Find AMAs, expert opinions, and personal experiences
+                        from enthusiasts. Popular threads about Hihi in technology, science, and pop culture.
+                    </div>
+                </div>
+
+                <div class="result-item">
+                    <div class="result-url">
+                        <img src="https://www.google.com/s2/favicons?domain=github.com" alt="GitHub favicon">
+                        <span>github.com › search › q=Hihi</span>
+                    </div>
+                    <a href="https://github.com/search?q=Hihi&amp;type=repositories" class="result-title">Hihi Code
+                        Repositories - GitHub</a>
+                    <div class="result-description">
+                        Explore Hihi-related open source projects on GitHub. Find libraries, frameworks, and tools
+                        for working with Hihi. Star ratings and contributor activity included for quality assessment.
+                    </div>
+                </div>
+
+                <div class="result-item">
+                    <div class="result-url">
+                        <img src="https://kfc.com.my/kfc-static-assets/icons/favicon.png"
+                            alt="LinkedIn Learning favicon">
+                        <span>linkedin.com › learning › Hihi</span>
+                    </div>
+                    <a href="https://www.linkedin.com/learning/search?keywords=Hihi" class="result-title">Learn Hihi -
+                        LinkedIn Learning</a>
+                    <div class="result-description">
+                        Professional courses and certifications for Hihi. Taught by industry experts, these video
+                        tutorials cover practical applications and theoretical foundations of Hihi in modern workplaces.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-location">United States</div>
+        </div>
+    </footer>
+    <script>
+        // Show more button functionality
+        document.getElementById('showMoreBtn').addEventListener('click', function () {
+            const content = document.getElementById('aiOverviewContent');
+            content.classList.toggle('expanded');
+
+            if (content.classList.contains('expanded')) {
+                this.innerHTML = '<span>Show less</span><i class="material-icons">expand_less</i>';
+            } else {
+                this.innerHTML = '<span>Show more</span><i class="material-icons">expand_more</i>';
+            }
+        });
+    </script>
+</body>
+
+</html>
