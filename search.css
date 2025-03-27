@@ -369,11 +369,17 @@ body {
     color: #70757a;
 }
 
-/* Image preview styling */
-.image-preview-container {
-    display: none;
-    position: relative;
+/* Replace image preview styles with these */
+.image-previews-container {
+    display: flex;
+    gap: 8px;
     margin-right: 8px;
+}
+
+.image-preview-container {
+    position: relative;
+    display: flex;
+    align-items: center;
 }
 
 .image-preview {
@@ -402,4 +408,5 @@ body {
     display: flex;
     align-items: center;
     width: 100%;
+    overflow-x: auto;
 }

@@ -5,7 +5,8 @@ const GEMINI_URL = `https://generativelanguage.googleapis.com/v1beta/models/gemi
 // Get search query from URL
 const urlParams = new URLSearchParams(window.location.search);
 const searchQuery = urlParams.get('q');
-let searchImage = sessionStorage.getItem('searchImage');
+// Change from single image to array
+let searchImages = JSON.parse(sessionStorage.getItem('searchImages')) || [];
 
 document.addEventListener('DOMContentLoaded', function () {
     const searchInput = document.getElementById('searchInput');
@@ -17,11 +18,9 @@ document.addEventListener('DOMContentLoaded', function () {
         document.title = `${searchQuery} - Google Search`;
         clearSearch.style.display = 'block';
 
-        // Display image if available
-        if (searchImage) {
-            const imagePreview = document.getElementById('imagePreview');
-            imagePreview.src = searchImage;
-            document.getElementById('imagePreviewContainer').style.display = 'block';
+        // Display existing images
+        if (searchImages.length > 0) {
+            updateImagePreviews();
         }
 
         // Update the page with search results
@@ -81,21 +80,19 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('imagePreviewContainer').style.display = 'none';
     });
 
-    // Handle image paste
+    // Modify the paste event handler
     searchInput.addEventListener('paste', (e) => {
         const items = e.clipboardData.items;
-
+        
         for (let i = 0; i < items.length; i++) {
-            if (items[i].type.indexOf('image') !== -1) {
+            if (items[i].type.indexOf('image') !== -1 && searchImages.length < 3) {
                 const blob = items[i].getAsFile();
                 const reader = new FileReader();
 
                 reader.onload = function (event) {
-                    searchImage = event.target.result;
-                    sessionStorage.setItem('searchImage', searchImage);
-                    const imagePreview = document.getElementById('imagePreview');
-                    imagePreview.src = searchImage;
-                    document.getElementById('imagePreviewContainer').style.display = 'block';
+                    searchImages.push(event.target.result);
+                    sessionStorage.setItem('searchImages', JSON.stringify(searchImages));
+                    updateImagePreviews();
                 };
 
                 reader.readAsDataURL(blob);
@@ -116,41 +113,57 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+// New function to update image previews
+function updateImagePreviews() {
+    const container = document.getElementById('imagePreviewsContainer');
+    container.innerHTML = '';
+    
+    searchImages.forEach((imageData, index) => {
+        const preview = document.createElement('div');
+        preview.className = 'image-preview-container';
+        preview.innerHTML = `
+            <img src="${imageData}" class="image-preview">
+            <div class="remove-image" data-index="${index}">
+                <i class="material-icons" style="font-size: 10px;">close</i>
+            </div>
+        `;
+        container.appendChild(preview);
+    });
+    
+    // Add event listeners for remove buttons
+    document.querySelectorAll('.remove-image').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+            const index = parseInt(e.currentTarget.dataset.index);
+            searchImages.splice(index, 1);
+            sessionStorage.setItem('searchImages', JSON.stringify(searchImages));
+            updateImagePreviews();
+        });
+    });
+}
+
 // Fetch AI Overview from Gemini API
 async function fetchAIOverview(query) {
     try {
         document.getElementById('aiOverview').style.display = 'block';
 
-        let data;
+        const data = {
+            contents: [{
+                parts: [
+                    { text: query || "What's in these images?" }
+                ]
+            }]
+        };
 
-        if (searchImage) {
-            // Remove the data:image/jpeg;base64, prefix
-            const imageBase64 = searchImage.split(',')[1];
-
-            data = {
-                contents: [{
-                    parts: [
-                        {
-                            text: query || "What's in this image?"
-                        },
-                        {
-                            inline_data: {
-                                mime_type: "image/jpeg",
-                                data: imageBase64
-                            }
-                        }
-                    ]
-                }]
-            };
-        } else {
-            data = {
-                contents: [{
-                    parts: [{
-                        text: `Answer this ${query}`
-                    }]
-                }]
-            };
-        }
+        // Add all images
+        searchImages.forEach(image => {
+            const imageBase64 = image.split(',')[1];
+            data.contents[0].parts.push({
+                inline_data: {
+                    mime_type: "image/jpeg",
+                    data: imageBase64
+                }
+            });
+        });
 
         const response = await fetch(GEMINI_URL, {
             method: 'POST',
