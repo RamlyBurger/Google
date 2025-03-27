@@ -80,26 +80,6 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('imagePreviewContainer').style.display = 'none';
     });
 
-    // Modify the paste event handler
-    searchInput.addEventListener('paste', (e) => {
-        const items = e.clipboardData.items;
-        
-        for (let i = 0; i < items.length; i++) {
-            if (items[i].type.indexOf('image') !== -1 && searchImages.length < 3) {
-                const blob = items[i].getAsFile();
-                const reader = new FileReader();
-
-                reader.onload = function (event) {
-                    searchImages.push(event.target.result);
-                    sessionStorage.setItem('searchImages', JSON.stringify(searchImages));
-                    updateImagePreviews();
-                };
-
-                reader.readAsDataURL(blob);
-            }
-        }
-    });
-
     // Show more button functionality
     document.getElementById('showMoreBtn').addEventListener('click', function () {
         const content = document.getElementById('aiOverviewContent');
@@ -113,11 +93,31 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+// Modify the paste event handler
+searchInput.addEventListener('paste', (e) => {
+    const items = e.clipboardData.items;
+
+    for (let i = 0; i < items.length; i++) {
+        if (items[i].type.indexOf('image') !== -1 && searchImages.length < 3) {
+            const blob = items[i].getAsFile();
+            const reader = new FileReader();
+
+            reader.onload = function (event) {
+                searchImages.push(event.target.result);
+                sessionStorage.setItem('searchImages', JSON.stringify(searchImages));
+                updateImagePreviews();
+            };
+
+            reader.readAsDataURL(blob);
+        }
+    }
+});
+
 // New function to update image previews
 function updateImagePreviews() {
     const container = document.getElementById('imagePreviewsContainer');
     container.innerHTML = '';
-    
+
     searchImages.forEach((imageData, index) => {
         const preview = document.createElement('div');
         preview.className = 'image-preview-container';
@@ -129,7 +129,7 @@ function updateImagePreviews() {
         `;
         container.appendChild(preview);
     });
-    
+
     // Add event listeners for remove buttons
     document.querySelectorAll('.remove-image').forEach(btn => {
         btn.addEventListener('click', (e) => {
