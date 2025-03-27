@@ -240,7 +240,11 @@ function generateSearchResults(query) {
             url: `https://${query.toLowerCase().replace(/\s+/g, '')}.com`
         },
         { name: 'dictionary', url: `https://www.dictionary.com/browse/${encodeURIComponent(query)}` },
-        { name: 'britannica', url: `https://www.britannica.com/search?query=${encodeURIComponent(query)}` }
+        { name: 'britannica', url: `https://www.britannica.com/search?query=${encodeURIComponent(query)}` },
+        { name: 'youtube', url: `https://www.youtube.com/results?search_query=${encodeURIComponent(query)}` },
+        { name: 'reddit', url: `https://www.reddit.com/search/?q=${encodeURIComponent(query)}` },
+        { name: 'github', url: `https://github.com/search?q=${encodeURIComponent(query)}&type=repositories` },
+        { name: 'linkedin-learning', url: `https://www.linkedin.com/learning/search?keywords=${encodeURIComponent(query)}` }
     ];
 
     let resultsHTML = '';
@@ -321,6 +325,66 @@ function generateSearchResults(query) {
                 Learn about ${query} in this article covering its origins, development, and significance. 
                 Explore related topics and discover how ${query} has influenced various aspects of 
                 society throughout history.
+            </div>
+        </div>
+    `;
+
+    // YouTube video results
+    resultsHTML += `
+        <div class="result-item">
+            <div class="result-url">
+                <img src="https://www.google.com/s2/favicons?domain=youtube.com" alt="YouTube favicon">
+                <span>youtube.com › results › search_query=${query}</span>
+            </div>
+            <a href="${domains[5].url}" class="result-title">${query} Videos - YouTube</a>
+            <div class="result-description">
+                Watch popular videos about ${query} on YouTube. From tutorials to documentaries, find comprehensive 
+                visual explanations and demonstrations related to ${query}. Channels verified for accurate content.
+            </div>
+        </div>
+    `;
+
+    // Reddit discussions
+    resultsHTML += `
+        <div class="result-item">
+            <div class="result-url">
+                <img src="https://www.google.com/s2/favicons?domain=reddit.com" alt="Reddit favicon">
+                <span>reddit.com › search › q=${query}</span>
+            </div>
+            <a href="${domains[6].url}" class="result-title">${query} Discussions on Reddit</a>
+            <div class="result-description">
+                Join the Reddit community discussing ${query}. Find AMAs, expert opinions, and personal experiences 
+                from enthusiasts. Popular threads about ${query} in technology, science, and pop culture.
+            </div>
+        </div>
+    `;
+
+    // GitHub repositories
+    resultsHTML += `
+        <div class="result-item">
+            <div class="result-url">
+                <img src="https://www.google.com/s2/favicons?domain=github.com" alt="GitHub favicon">
+                <span>github.com › search › q=${query}</span>
+            </div>
+            <a href="${domains[7].url}" class="result-title">${query} Code Repositories - GitHub</a>
+            <div class="result-description">
+                Explore ${query}-related open source projects on GitHub. Find libraries, frameworks, and tools 
+                for working with ${query}. Star ratings and contributor activity included for quality assessment.
+            </div>
+        </div>
+    `;
+
+    // LinkedIn Learning courses
+    resultsHTML += `
+        <div class="result-item">
+            <div class="result-url">
+                <img src="https://kfc.com.my/kfc-static-assets/icons/favicon.png" alt="LinkedIn Learning favicon">
+                <span>linkedin.com › learning › ${query}</span>
+            </div>
+            <a href="${domains[8].url}" class="result-title">Learn ${query} - LinkedIn Learning</a>
+            <div class="result-description">
+                Professional courses and certifications for ${query}. Taught by industry experts, these video 
+                tutorials cover practical applications and theoretical foundations of ${query} in modern workplaces.
             </div>
         </div>
     `;
