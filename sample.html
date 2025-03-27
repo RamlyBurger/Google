@@ -9,6 +9,29 @@
         href="https://www.google.com/images/branding/googleg/1x/googleg_standard_color_128dp.png">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel="stylesheet" href="search.css">
+    <style>
+        .qa-item {
+            background-color: #f4f4f4;
+            margin-bottom: 15px;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .question {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .answer {
+            margin-left: 20px;
+        }
+
+        .answer ul {
+            margin-top: 5px;
+            padding-left: 20px;
+        }
+    </style>
 </head>
 
 <body>
@@ -68,39 +91,272 @@
                 </div>
                 <div class="ai-content" id="aiOverviewContent">
                     <h3>Technical Knowledge Summary</h3>
-                    <ul>
-                        <li><strong>Keyboard Interrupt:</strong> Press Ctrl+C to initiate</li>
-                        <li><strong>Boston Smart City:</strong> Bike sharing, WiFi hotspots, smart streets</li>
-                        <li><strong>Smart City Challenges:</strong> Urbanization, traffic, environment, infrastructure
-                        </li>
-                        <li><strong>Malaysia Projects:</strong> KL Smart City, Smart Selangor, Melaka 2035</li>
-                        <li><strong>Industry Pillars:</strong> IoT, AI, Big Data, Cloud Computing</li>
-                        <li><strong>Industry Revolution:</strong> Industry 2.0 used electrical energy</li>
-                        <li><strong>Pharma Monitoring:</strong> Sensors for temperature, tracking, predictive
-                            maintenance</li>
-                        <li><strong>Grove Sensor:</strong> Analog conversion: output = input // 4</li>
-                        <li><strong>Raspberry Pi IDEs:</strong> Geany and Thonny</li>
-                        <li><strong>LCD Display:</strong> Use 8 blank spaces for left alignment</li>
-                        <li><strong>Circuit Components:</strong> Push Button, Transistor, Relay, LED Off</li>
-                        <li><strong>Transistor Pins:</strong> Collector-Base-Emitter (right to left)</li>
-                        <li><strong>Grove Modules:</strong> DHT, Ultrasonic, Rotary, Buzzer</li>
-                        <li><strong>Smart Retail:</strong> Digital signage, electronic shelf labels</li>
-                        <li><strong>Industry 4.0:</strong> IoT, Autonomous Vehicles, Mass Customization</li>
-                        <li><strong>Data Protocols:</strong> SPI for 15Mbps speed</li>
-                        <li><strong>Power Consumption:</strong> Up to 50 LEDs with relay</li>
-                        <li><strong>IoT Architecture:</strong> Connectivity, Database, Visualization</li>
-                        <li><strong>Huawei Solutions:</strong> Campus management, energy monitoring</li>
-                        <li><strong>Resistor Value:</strong> 10kΩ ±5%</li>
-                        <li><strong>Breadboard:</strong> Vertical and horizontal connections</li>
-                        <li><strong>GPIO Pins:</strong> Pins 6,9,14,20,25,30,34,39 as ground</li>
-                        <li><strong>Data Protocols:</strong> UDP, HTTP, CoAP, TCP</li>
-                        <li><strong>IoT Leaders:</strong> Cisco, Siemens, Bosch, Oracle</li>
-                        <li><strong>Wireless Standards:</strong> NFC, Bluetooth, WiFi</li>
-                        <li><strong>Data Units:</strong> Zettabyte (2016), Yottabyte (current)</li>
-                        <li><strong>Edge Computing:</strong> IoT and low-latency apps</li>
-                        <li><strong>Device Communication:</strong> Direct D2D model</li>
-                        <li><strong>IoT Elements:</strong> Intelligence, Identity, Communication</li>
-                    </ul>
+                    <div class="qa-item">
+                        <div class="question">Q1: How to initiate a Keyboard Interrupt exception to stop programme
+                            execution?</div>
+                        <div class="answer">Press Ctrl + C</div>
+                    </div>
+
+                    <div class="qa-item">
+                        <div class="question">Q2: What activities are implemented in Boston's smart city?</div>
+                        <div class="answer">                            <ul>
+                                <li>Promote public bike sharing system across cities and towns</li>
+                                <li>Provide various wireless access points for wider Internet coverage</li>
+                                <li>Enable smart streets for monitoring city street navigation and interactions</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="qa-item">
+                        <div class="question">Q3: What are the key drivers/challenges of Smart City?</div>
+                        <div class="answer">                            <ul>
+                                <li>Population growth and urbanization</li>
+                                <li>Traffic Congestion</li>
+                                <li>Environmental protection to reduce CO2 emissions</li>
+                                <li>Aging public infrastructure</li>
+                                <li>Resources Limitation</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="qa-item">
+                        <div class="question">Q4: What are the main pillars/key areas in the national industry policy
+                            framework?</div>
+                        <div class="answer">                            <ul>
+                                <li>Internet of Things</li>
+                                <li>Augmented Reality</li>
+                                <li>Artificial Intelligence</li>
+                                <li>Big Data Analytics</li>
+                                <li>Cloud Computing</li>
+                                <li>Autonomous Robots</li>
+                                <li>Simulation</li>
+                                <li>Cyber Security</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="qa-item">
+                        <div class="question">Q5: What is correct in the process of Industry Revolution?</div>
+                        <div class="answer">In industry 2.0, electrical energy replaced steam energy in operating
+                            production equipment</div>
+                    </div>
+
+                    <div class="qa-item">
+                        <div class="question">Q6: What are possible improvements for pharmaceutical monitoring?</div>
+                        <div class="answer">                            <ul>
+                                <li>Install sensors in storage facilities to monitor temperature, humidity, light</li>
+                                <li>Track pharmaceutical movement through the supply chain</li>
+                                <li>Use sensor data to predict potential failures and schedule maintenance</li>
+                                <li>Optimize transportation routes to reduce delivery times and costs</li>
+                                <li>Optimize resource utilization and reduce waste</li>
+                                <li>Use RFID tags to track product location and status in real-time</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="qa-item">
+                        <div class="question">Q7: How to convert analog input to analog output using Grove - Rotary
+                            Angle Sensor?</div>
+                        <div class="answer">output = input // 4</div>
+                    </div>
+
+                    <div class="qa-item">
+                        <div class="question">Q8: Which IDEs can be used to compile and execute Python codes in
+                            Raspberry Pi?</div>
+                        <div class="answer">                            <ul>
+                                <li>Geany Programmers' Editor</li>
+                                <li>Thonny Python IDE</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="qa-item">
+                        <div class="question">Q9: How to display a character at the left half of Grove RGB 16x2 LCD
+                            display?</div>
+                        <div class="answer">Use 8 blank characters</div>
+                    </div>
+
+                    <div class="qa-item">
+                        <div class="question">Q10: What are the circuit diagram components when 5V is supplied and Push
+                            button is pressed?</div>
+                        <div class="answer">                            <ul>
+                                <li>Push Button</li>
+                                <li>B: Transistor</li>
+                                <li>C: Normally Open Pin</li>
+                                <li>D: Relay</li>
+                                <li>E: LED Light (Off state)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="qa-item">
+                        <div class="question">Q11: What are the pin labels for 2N3904 transistor from right to left?
+                        </div>
+                        <div class="answer">Collector-Base-Emitter</div>
+                    </div>
+
+                    <div class="qa-item">
+                        <div class="question">Q12: What are the Grove Pi modules from left to right?</div>
+                        <div class="answer">DHT, Ultrasonic Ranger, Rotary Angle, Buzzer</div>
+                    </div>
+
+                    <div class="qa-item">
+                        <div class="question">Q13: What features are in Intelligent Retailer by T-Systems International
+                            GmbH?</div>
+                        <div class="answer">                            <ul>
+                                <li>Hazard Warning Systems</li>
+                                <li>Digital Signage</li>
+                                <li>Electronic Shelf Labels</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="qa-item">
+                        <div class="question">Q14: What areas can be included in Industry 4.0 Ecosystem?</div>
+                        <div class="answer">                            <ul>
+                                <li>Future Resources</li>
+                                <li>Internet of Things</li>
+                                <li>Advanced Materials</li>
+                                <li>Mass Customization</li>
+                                <li>Autonomous Vehicle</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="qa-item">
+                        <div class="question">Q15: What protocol is used for 15Mbps data communication transmission?
+                        </div>
+                        <div class="answer">Serial Peripheral Interface (SPI) protocol</div>
+                    </div>
+
+                    <div class="qa-item">
+                        <div class="question">Q16: How many LEDs with maximum light intensity can be connected and
+                            controlled by a Relay?</div>
+                        <div class="answer">50 LEDs</div>
+                    </div>
+
+                    <div class="qa-item">
+                        <div class="question">Q17: What are the features of a modern IoT platform architecture?</div>
+                        <div class="answer">                            <ul>
+                                <li>Connectivity and normalization set different protocols and data formats into one
+                                    interface</li>
+                                <li>Additional Tools bring IoT use cases with platform ecosystem apps for monitoring
+                                    devices</li>
+                                <li>Database store moves device data to hybrid cloud-based storage</li>
+                                <li>Visualization performs trend observations in different model displays</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="qa-item">
+                        <div class="question">Q18: What does Huawei campus digital platform solution address?</div>
+                        <div class="answer">                            <ul>
+                                <li>Campus terminals without unified management</li>
+                                <li>Poorly monitored energy consumption</li>
+                                <li>Scattered resources with lower efficiency</li>
+                                <li>CCTV without incident warning features</li>
+                                <li>Old video surveillance systems causing slow emergency response</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="qa-item">
+                        <div class="question">Q19: What is the resistor value?</div>
+                        <div class="answer">10000 ±5% Ohm</div>
+                    </div>
+
+                    <div class="qa-item">
+                        <div class="question">Q20: What breadboard connections are true?</div>
+                        <div class="answer">                            <ul>
+                                <li>F and J are connected</li>
+                                <li>A and B are connected</li>
+                                <li>E and I are connected</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="qa-item">
+                        <div class="question">Q21: What are the GPIO Ground Pins?</div>
+                        <div class="answer">Pins 6, 9, 14, 20, 25, 30, 34, 39</div>
+                    </div>
+
+                    <div class="qa-item">
+                        <div class="question">Q22: What protocols are involved for service providers to exchange data
+                            and control message traffic?</div>
+                        <div class="answer">                            <ul>
+                                <li>User Datagram Protocol</li>
+                                <li>Datagram Transport Layer Security Protocol</li>
+                                <li>Hyper Text Transfer Protocol</li>
+                                <li>Transport Layer Security Protocol</li>
+                                <li>Constrained Application Protocol</li>
+                                <li>Transmission Control Protocol</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="qa-item">
+                        <div class="question">Q23: Which global companies play main roles in providing IoT industry
+                            solutions according to the International Data Corporation 2021 report?</div>
+                        <div class="answer">                            <ul>
+                                <li>Honeywell</li>
+                                <li>Cisco</li>
+                                <li>Bosch</li>
+                                <li>Oracle</li>
+                                <li>Siemens</li>
+                                <li>Schneider Electrics</li>
+                                <li>Philips</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="qa-item">
+                        <div class="question">Q24: What are the Layer 1 wireless connection protocols for device
+                            communication?</div>
+                        <div class="answer">                            <ul>
+                                <li>Near Field Communication</li>
+                                <li>Bluetooth</li>
+                                <li>WiFi</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="qa-item">
+                        <div class="question">Q25: What data unit statements are correct?</div>
+                        <div class="answer">                            <ul>
+                                <li>Global network traffic reached 1.3 ZettaBytes in 2016</li>
+                                <li>250 trillion Digital Versatile Discs equivalent to YottaByte data</li>
+                                <li>Facebook processes 0.5 PetaBytes of new data daily</li>
+                                <li>European Organization for Nuclear Research Large Hadron Collider generates 1
+                                    PetaBytes data per second</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="qa-item">
+                        <div class="question">Q26: What are the major Edge Computing use cases according to Cisco Annual
+                            Internet Report?</div>
+                        <div class="answer">                            <ul>
+                                <li>Internet of Things Applications</li>
+                                <li>Ultra-reliable, low-latency applications</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="qa-item">
+                        <div class="question">Q27: What connection model doesn't require intermediary application
+                            servers?</div>
+                        <div class="answer">Device-to-Device Communication Model</div>
+                    </div>
+
+                    <div class="qa-item">
+                        <div class="question">Q28: What are the three basic elements for Internet of Things?</div>
+                        <div class="answer">                            <ul>
+                                <li>Intelligence</li>
+                                <li>Unique Identity</li>
+                                <li>Communication</li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
                 <div class="ai-actions">
                     <div class="more-btn" id="showMoreBtn">
