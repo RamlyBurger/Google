@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Search Results</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="search.css">
+</head>
+
+<body>
+    <div class="header">
+        <a href="index.html">
+            <img src="https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png"
+                alt="Google Logo" class="header-logo">
+        </a>
+        <div class="search-container">
+            <div class="search-box">
+                <i class="material-icons search-icon">search</i>
+                <div class="search-with-image">
+                    <div class="image-preview-container" id="imagePreviewContainer">
+                        <img id="imagePreview" class="image-preview">
+                        <div class="remove-image" id="removeImage">
+                            <i class="material-icons" style="font-size: 10px;">close</i>
+                        </div>
+                    </div>
+                    <input type="text" class="search-input" id="searchInput">
+                </div>
+                <i class="material-icons clear-icon" id="clearSearch">close</i>
+                <div class="search-icons">
+                    <i class="material-icons">mic</i>
+                    <i class="material-icons">photo_camera</i>
+                </div>
+            </div>
+        </div>
+        <div class="header-right">
+            <i class="material-icons">settings</i>
+            <i class="material-icons">apps</i>
+            <div class="sign-in-btn">Sign in</div>
+        </div>
+    </div>
+
+    <nav class="nav">
+        <a href="#" class="nav-item active">All</a>
+        <a href="#" class="nav-item">Images</a>
+        <a href="#" class="nav-item">Shopping</a>
+        <a href="#" class="nav-item">Videos</a>
+        <a href="#" class="nav-item">Short videos</a>
+        <a href="#" class="nav-item">Forums</a>
+        <a href="#" class="nav-item">Web</a>
+        <div class="more-button">
+            <i class="material-icons">more_vert</i> More
+        </div>
+        <a href="#" class="nav-item" style="margin-left: auto;">Tools</a>
+    </nav>
+
+    <div class="content">
+        <div class="results-container">
+            <div class="result-stats" id="resultStats">About 292,819 results (0.86 seconds)</div>
+
+            <div class="ai-overview" id="aiOverview" style="display: none;">
+                <div class="ai-icon">
+                    <i class="material-icons">tips_and_updates</i>
+                    <span class="ai-title">AI Overview</span>
+                    <a href="#" class="learn-more">Learn more</a>
+                </div>
+                <div class="ai-content" id="aiOverviewContent">
+                    <!-- AI content will be populated by Gemini API -->
+                    <div class="loading">Loading AI Overview...</div>
+                </div>
+                <div class="ai-actions">
+                    <div class="more-btn" id="showMoreBtn">
+                        <span>Show more</span>
+                        <i class="material-icons">expand_more</i>
+                    </div>
+                </div>
+            </div>
+
+            <div id="searchResults">
+                <!-- Search results will be populated dynamically -->
+                <div class="loading">Loading search results...</div>
+            </div>
+        </div>
+
+        <div class="right-panel" id="rightPanel">
+            <!-- Right panel will be populated dynamically -->
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-location" id="searchLocation">United States</div>
+        </div>
+    </footer>
+    <script src="search.js"></script>
+</body>
+
+</html>
